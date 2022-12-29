@@ -51,5 +51,10 @@ namespace Text_Editor
         {
             Save();
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
     }
 }
