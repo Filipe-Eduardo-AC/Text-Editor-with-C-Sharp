@@ -3,7 +3,7 @@ namespace Text_Editor
     public partial class Form1 : Form
     {
 
-        StreamReader reading = null;
+        StringReader reading = null;
 
         public Form1()
         {
@@ -232,21 +232,32 @@ namespace Text_Editor
             }
         }
 
-        private void leftAlign()
+        private void LeftAlign()
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
         }
 
-        private void centerAlign()
+        private void CenterAlign()
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
         }
 
-        private void rightAlign()
+        private void RightAlign()
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
         }
 
+        private void Print()
+        {
+            printDialog1.Document = printDocument1;
+            string text = this.richTextBox1.Text;
+            reading = new StringReader(text);
+
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.printDocument1.Print();
+            }
+        }
 
 
 
@@ -328,32 +339,76 @@ namespace Text_Editor
         }
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            leftAlign();
+            LeftAlign();
         }
 
         private void btn_left_Click(object sender, EventArgs e)
         {
-            leftAlign();
+            LeftAlign();
         }
 
         private void centerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            centerAlign();
+            CenterAlign();
         }
 
         private void btn_center_Click(object sender, EventArgs e)
         {
-            centerAlign();
+            CenterAlign();
         }
 
         private void rightToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rightAlign();
+            RightAlign();
         }
 
         private void btn_right_Click(object sender, EventArgs e)
         {
-            rightAlign();
+            RightAlign();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int count = 0;
+            float CordY = 0;
+            float pageLines = 0;
+            string line = null;
+            float leftMargin = e.MarginBounds.Left - 50;
+            float upperMargin = e.MarginBounds.Top - 50;
+
+
+            Font font = this.richTextBox1.Font;
+            SolidBrush brush = new SolidBrush(Color.Black);
+
+            pageLines = e.MarginBounds.Height / font.GetHeight(e.Graphics);
+            line = reading.ReadLine();
+
+            if (leftMargin < 5)
+            {
+                leftMargin = 20;
+            }
+            if (upperMargin < 5)
+            {
+                upperMargin = 20;
+            }
+
+            while (count < pageLines)
+            {
+                CordY = (upperMargin + (count * font.GetHeight(e.Graphics)));
+                e.Graphics.DrawString(line, font, brush, leftMargin, CordY, new StringFormat());
+                count += 1;
+                line = reading.ReadLine();
+            }
+            if (line != null)
+            {
+                e.HasMorePages = true;
+            }
+            brush.Dispose();
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Print();
         }
     }
 }
