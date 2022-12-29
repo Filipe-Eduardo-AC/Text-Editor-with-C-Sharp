@@ -16,16 +16,6 @@ namespace Text_Editor
             richTextBox1.Focus(); // Posiciona o cursor na caixa de texto
         }
 
-        private void btn_new_Click(object sender, EventArgs e)
-        {
-            New();
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            New();
-        }
-
         private void Save()
         {
             try
@@ -45,16 +35,6 @@ namespace Text_Editor
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btn_save_Click(object sender, EventArgs e)
-        {
-            Save();
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Save();
         }
 
         private void Open()
@@ -89,16 +69,6 @@ namespace Text_Editor
 
         }
 
-        private void btn_open_Click(object sender, EventArgs e)
-        {
-            Open();
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Open();
-        }
-
         private void Copy()
         {
             if (richTextBox1.SelectionLength > 0)
@@ -110,26 +80,6 @@ namespace Text_Editor
         private void Paste()
         {
             richTextBox1.Paste();
-        }
-
-        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Copy();
-        }
-
-        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Paste();
-        }
-
-        private void btn_copy_Click(object sender, EventArgs e)
-        {
-            Copy();
-        }
-
-        private void btn_paste_Click(object sender, EventArgs e)
-        {
-            Paste();
         }
 
         private void Bold()
@@ -282,36 +232,6 @@ namespace Text_Editor
             }
         }
 
-        private void btn_bold_Click(object sender, EventArgs e)
-        {
-            Bold();
-        }
-
-        private void btn_italic_Click(object sender, EventArgs e)
-        {
-            Italic();
-        }
-
-        private void btn_underline_Click(object sender, EventArgs e)
-        {
-            Underline();
-        }
-
-        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Bold();
-        }
-
-        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Italic();
-        }
-
-        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Underline();
-        }
-
         private void leftAlign()
         {
             richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
@@ -327,6 +247,85 @@ namespace Text_Editor
             richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
         }
 
+
+
+
+
+        private void btn_new_Click(object sender, EventArgs e)
+        {
+            New();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            New();
+        }
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+        private void btn_open_Click(object sender, EventArgs e)
+        {
+            Open();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Open();
+        }
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Copy();
+        }
+
+        private void btn_copy_Click(object sender, EventArgs e)
+        {
+            Copy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Paste();
+        }
+
+        private void btn_paste_Click(object sender, EventArgs e)
+        {
+            Paste();
+        }
+        private void btn_bold_Click(object sender, EventArgs e)
+        {
+            Bold();
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bold();
+        }
+
+        private void btn_italic_Click(object sender, EventArgs e)
+        {
+            Italic();
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Italic();
+        }
+        private void btn_underline_Click(object sender, EventArgs e)
+        {
+            Underline();
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Underline();
+        }
         private void leftToolStripMenuItem_Click(object sender, EventArgs e)
         {
             leftAlign();
