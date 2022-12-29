@@ -56,5 +56,47 @@ namespace Text_Editor
         {
             Save();
         }
+
+        private void Open()
+        {
+            this.openFileDialog1.Multiselect = false;
+            this.openFileDialog1.Title = "Open file";
+            openFileDialog1.InitialDirectory = @"C:\\Users\\filip\\Desktop\\";
+            openFileDialog1.Filter = "Text file (*.txt) | *.txt";
+
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    FileStream file = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);
+                    StreamReader streamReader01 = new StreamReader(file);
+                    streamReader01.BaseStream.Seek(0, SeekOrigin.Begin);
+                    this.richTextBox1.Text = "";
+                    string line = streamReader01.ReadLine();
+                    while (line != null)
+                    {
+                        this.richTextBox1.Text += line + "\n";
+                        line = streamReader01.ReadLine();
+                    }
+                    streamReader01.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void btn_open_Click(object sender, EventArgs e)
+        {
+            Open();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Open();
+        }
     }
 }
