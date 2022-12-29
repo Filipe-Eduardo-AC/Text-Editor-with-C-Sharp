@@ -98,5 +98,128 @@ namespace Text_Editor
         {
             Open();
         }
+
+        private void Copy()
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                richTextBox1.Copy();
+            }
+        }
+
+        private void Paste()
+        {
+            richTextBox1.Paste();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Copy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Paste();
+        }
+
+        private void btn_copy_Click(object sender, EventArgs e)
+        {
+            Copy();
+        }
+
+        private void btn_paste_Click(object sender, EventArgs e)
+        {
+            Paste();
+        }
+
+        private void Bold()
+        {
+            string font_name = null;
+            float font_size = 0;
+            bool bold = false;
+
+            font_name = richTextBox1.Font.Name;
+            font_size = richTextBox1.Font.Size;
+            bold = richTextBox1.Font.Bold;
+
+            if (bold == false)
+            {
+                richTextBox1.SelectionFont = new Font(font_name, font_size, FontStyle.Bold);
+            }
+            else
+            {
+                richTextBox1.SelectionFont = new Font(font_name, font_size, FontStyle.Regular);
+            }
+        }
+
+        private void Italic()
+        {
+            string font_name = null;
+            float font_size = 0;
+            bool italic = false;
+
+            font_name = richTextBox1.Font.Name;
+            font_size = richTextBox1.Font.Size;
+            italic = richTextBox1.Font.Italic;
+
+            if (italic == false)
+            {
+                richTextBox1.SelectionFont = new Font(font_name, font_size, FontStyle.Italic);
+            }
+            else
+            {
+                richTextBox1.SelectionFont = new Font(font_name, font_size, FontStyle.Italic);
+            }
+        }
+
+        private void Underline()
+        {
+            string font_name = null;
+            float font_size = 0;
+            bool underline = false;
+
+            font_name = richTextBox1.Font.Name;
+            font_size = richTextBox1.Font.Size;
+            underline = richTextBox1.Font.Italic;
+
+            if (underline == false)
+            {
+                richTextBox1.SelectionFont = new Font(font_name, font_size, FontStyle.Underline);
+            }
+            else
+            {
+                richTextBox1.SelectionFont = new Font(font_name, font_size, FontStyle.Underline);
+            }
+        }
+
+        private void btn_bold_Click(object sender, EventArgs e)
+        {
+            Bold();
+        }
+
+        private void btn_italic_Click(object sender, EventArgs e)
+        {
+            Italic();
+        }
+
+        private void btn_underline_Click(object sender, EventArgs e)
+        {
+            Underline();
+        }
+
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bold();
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Italic();
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Underline();
+        }
     }
 }

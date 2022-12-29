@@ -112,39 +112,39 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.printToolStripMenuItem.Text = "Print";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -163,12 +163,14 @@
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
@@ -196,20 +198,23 @@
             // boldToolStripMenuItem
             // 
             this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            this.boldToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.boldToolStripMenuItem.Text = "Bold";
+            this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
             // 
             // italicToolStripMenuItem
             // 
             this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
-            this.italicToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.italicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.italicToolStripMenuItem.Text = "Italic";
+            this.italicToolStripMenuItem.Click += new System.EventHandler(this.italicToolStripMenuItem_Click);
             // 
             // underlineToolStripMenuItem
             // 
             this.underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
-            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.underlineToolStripMenuItem.Text = "Underline";
+            this.underlineToolStripMenuItem.Click += new System.EventHandler(this.underlineToolStripMenuItem_Click);
             // 
             // alignmentToolStripMenuItem
             // 
@@ -219,7 +224,7 @@
             this.rightToolStripMenuItem,
             this.justifiedToolStripMenuItem});
             this.alignmentToolStripMenuItem.Name = "alignmentToolStripMenuItem";
-            this.alignmentToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.alignmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alignmentToolStripMenuItem.Text = "Alignment ";
             // 
             // centerToolStripMenuItem
@@ -313,6 +318,7 @@
             this.btn_copy.Name = "btn_copy";
             this.btn_copy.Size = new System.Drawing.Size(23, 22);
             this.btn_copy.Text = "Copy";
+            this.btn_copy.Click += new System.EventHandler(this.btn_copy_Click);
             // 
             // btn_paste
             // 
@@ -322,6 +328,7 @@
             this.btn_paste.Name = "btn_paste";
             this.btn_paste.Size = new System.Drawing.Size(23, 22);
             this.btn_paste.Text = "Paste";
+            this.btn_paste.Click += new System.EventHandler(this.btn_paste_Click);
             // 
             // toolStripSeparator2
             // 
@@ -336,6 +343,7 @@
             this.btn_bold.Name = "btn_bold";
             this.btn_bold.Size = new System.Drawing.Size(23, 22);
             this.btn_bold.Text = "Bold";
+            this.btn_bold.Click += new System.EventHandler(this.btn_bold_Click);
             // 
             // btn_italic
             // 
@@ -345,6 +353,7 @@
             this.btn_italic.Name = "btn_italic";
             this.btn_italic.Size = new System.Drawing.Size(23, 22);
             this.btn_italic.Text = "Italic";
+            this.btn_italic.Click += new System.EventHandler(this.btn_italic_Click);
             // 
             // btn_underline
             // 
@@ -354,6 +363,7 @@
             this.btn_underline.Name = "btn_underline";
             this.btn_underline.Size = new System.Drawing.Size(23, 22);
             this.btn_underline.Text = "Underline";
+            this.btn_underline.Click += new System.EventHandler(this.btn_underline_Click);
             // 
             // btn_font
             // 
