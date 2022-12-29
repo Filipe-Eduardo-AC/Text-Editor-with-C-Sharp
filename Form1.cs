@@ -311,5 +311,50 @@ namespace Text_Editor
         {
             Underline();
         }
+
+        private void leftAlign()
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Left;
+        }
+
+        private void centerAlign()
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
+        }
+
+        private void rightAlign()
+        {
+            richTextBox1.SelectionAlignment = HorizontalAlignment.Right;
+        }
+
+        private void leftToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            leftAlign();
+        }
+
+        private void btn_left_Click(object sender, EventArgs e)
+        {
+            leftAlign();
+        }
+
+        private void centerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            centerAlign();
+        }
+
+        private void btn_center_Click(object sender, EventArgs e)
+        {
+            centerAlign();
+        }
+
+        private void rightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rightAlign();
+        }
+
+        private void btn_right_Click(object sender, EventArgs e)
+        {
+            rightAlign();
+        }
     }
 }

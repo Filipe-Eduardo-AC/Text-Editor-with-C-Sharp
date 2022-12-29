@@ -47,8 +47,8 @@
             this.italicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.underlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.centerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.justifiedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -89,7 +89,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.fontToolStripMenuItem});
+            this.fontToolStripMenuItem,
+            this.alignmentToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -189,8 +190,7 @@
             this.fontToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.boldToolStripMenuItem,
             this.italicToolStripMenuItem,
-            this.underlineToolStripMenuItem,
-            this.alignmentToolStripMenuItem});
+            this.underlineToolStripMenuItem});
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.fontToolStripMenuItem.Text = "Font";
@@ -198,57 +198,60 @@
             // boldToolStripMenuItem
             // 
             this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
-            this.boldToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.boldToolStripMenuItem.Text = "Bold";
             this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
             // 
             // italicToolStripMenuItem
             // 
             this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
-            this.italicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.italicToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.italicToolStripMenuItem.Text = "Italic";
             this.italicToolStripMenuItem.Click += new System.EventHandler(this.italicToolStripMenuItem_Click);
             // 
             // underlineToolStripMenuItem
             // 
             this.underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
-            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.underlineToolStripMenuItem.Text = "Underline";
             this.underlineToolStripMenuItem.Click += new System.EventHandler(this.underlineToolStripMenuItem_Click);
             // 
             // alignmentToolStripMenuItem
             // 
             this.alignmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.centerToolStripMenuItem,
             this.leftToolStripMenuItem,
+            this.centerToolStripMenuItem,
             this.rightToolStripMenuItem,
             this.justifiedToolStripMenuItem});
             this.alignmentToolStripMenuItem.Name = "alignmentToolStripMenuItem";
-            this.alignmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alignmentToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
             this.alignmentToolStripMenuItem.Text = "Alignment ";
-            // 
-            // centerToolStripMenuItem
-            // 
-            this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
-            this.centerToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.centerToolStripMenuItem.Text = "Center";
             // 
             // leftToolStripMenuItem
             // 
             this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.leftToolStripMenuItem.Text = "Left";
+            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click);
+            // 
+            // centerToolStripMenuItem
+            // 
+            this.centerToolStripMenuItem.Name = "centerToolStripMenuItem";
+            this.centerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.centerToolStripMenuItem.Text = "Center";
+            this.centerToolStripMenuItem.Click += new System.EventHandler(this.centerToolStripMenuItem_Click);
             // 
             // rightToolStripMenuItem
             // 
             this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
-            this.rightToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.rightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rightToolStripMenuItem.Text = "Right";
+            this.rightToolStripMenuItem.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
             // 
             // justifiedToolStripMenuItem
             // 
             this.justifiedToolStripMenuItem.Name = "justifiedToolStripMenuItem";
-            this.justifiedToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.justifiedToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.justifiedToolStripMenuItem.Text = "Justified";
             // 
             // toolStrip1
@@ -387,6 +390,7 @@
             this.btn_left.Name = "btn_left";
             this.btn_left.Size = new System.Drawing.Size(23, 22);
             this.btn_left.Text = "Left";
+            this.btn_left.Click += new System.EventHandler(this.btn_left_Click);
             // 
             // btn_center
             // 
@@ -396,6 +400,7 @@
             this.btn_center.Name = "btn_center";
             this.btn_center.Size = new System.Drawing.Size(23, 22);
             this.btn_center.Text = "Center";
+            this.btn_center.Click += new System.EventHandler(this.btn_center_Click);
             // 
             // btn_right
             // 
@@ -405,6 +410,7 @@
             this.btn_right.Name = "btn_right";
             this.btn_right.Size = new System.Drawing.Size(23, 22);
             this.btn_right.Text = "Right";
+            this.btn_right.Click += new System.EventHandler(this.btn_right_Click);
             // 
             // openFileDialog1
             // 
@@ -461,11 +467,6 @@
         private ToolStripMenuItem boldToolStripMenuItem;
         private ToolStripMenuItem italicToolStripMenuItem;
         private ToolStripMenuItem underlineToolStripMenuItem;
-        private ToolStripMenuItem alignmentToolStripMenuItem;
-        private ToolStripMenuItem centerToolStripMenuItem;
-        private ToolStripMenuItem leftToolStripMenuItem;
-        private ToolStripMenuItem rightToolStripMenuItem;
-        private ToolStripMenuItem justifiedToolStripMenuItem;
         private ToolStrip toolStrip1;
         private ToolStripButton btn_new;
         private ToolStripButton btn_open;
@@ -487,5 +488,10 @@
         private SaveFileDialog saveFileDialog1;
         private PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private ToolStripMenuItem alignmentToolStripMenuItem;
+        private ToolStripMenuItem centerToolStripMenuItem;
+        private ToolStripMenuItem leftToolStripMenuItem;
+        private ToolStripMenuItem rightToolStripMenuItem;
+        private ToolStripMenuItem justifiedToolStripMenuItem;
     }
 }
