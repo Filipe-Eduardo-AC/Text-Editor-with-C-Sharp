@@ -305,6 +305,23 @@ namespace Text_Editor
             richTextBox1.Redo();
         }
 
+        private void About01()
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+        }
+
+        private void About02()
+        {
+            Form3 f = new Form3();
+            f.ShowDialog();
+        }
+
+
+
+
+
+
         private void btn_new_Click(object sender, EventArgs e)
         {
             if (richTextBox1.TextLength > 0)
@@ -639,6 +656,16 @@ namespace Text_Editor
                 Font font = fontDialog1.Font;
                 this.richTextBox1.SelectionFont = font;
             }
+        }
+
+        private void theProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About01();
+        }
+
+        private void theCreatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About02();
         }
     }
 }
