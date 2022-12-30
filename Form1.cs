@@ -410,5 +410,10 @@ namespace Text_Editor
         {
             Print();
         }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
     }
 }
