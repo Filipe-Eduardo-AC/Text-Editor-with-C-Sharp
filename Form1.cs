@@ -468,5 +468,15 @@ namespace Text_Editor
         {
             Redo();
         }
+
+        private void btn_font_Click(object sender, EventArgs e)
+        {
+            DialogResult result = fontDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                Font font = fontDialog1.Font;
+                this.richTextBox1.SelectionFont = font;
+            }
+        }
     }
 }
