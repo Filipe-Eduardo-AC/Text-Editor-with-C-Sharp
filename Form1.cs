@@ -16,6 +16,34 @@ namespace Text_Editor
             richTextBox1.Focus(); // Posiciona o cursor na caixa de texto
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before closing?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    base.OnFormClosing(e);
+
+                    if (e.CloseReason == CloseReason.WindowsShutDown) return;
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                base.OnFormClosing(e);
+
+                if (e.CloseReason == CloseReason.WindowsShutDown) return;
+            }
+        }
+
         private void Save()
         {
             try
@@ -277,17 +305,48 @@ namespace Text_Editor
             richTextBox1.Redo();
         }
 
-
-
-
         private void btn_new_Click(object sender, EventArgs e)
         {
-            New();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before starting a new file?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    New();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                New();
+            }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            New();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before starting a new file?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    New();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                New();
+            }
         }
 
         private void btn_save_Click(object sender, EventArgs e)
@@ -297,16 +356,67 @@ namespace Text_Editor
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Save();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before opening a new file?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Open();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                Open();
+            }
         }
         private void btn_open_Click(object sender, EventArgs e)
         {
-            Open();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before opening a new file?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Open();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                Open();
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Open();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before opening a new file?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Open();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                Open();
+            }
         }
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -426,12 +536,46 @@ namespace Text_Editor
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Print();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before printing?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Print();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                Print();
+            }
         }
 
         private void btn_print_Click(object sender, EventArgs e)
         {
-            Print();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before printing?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Print();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                Print();
+            }
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -444,9 +588,27 @@ namespace Text_Editor
             Cut();
         }
 
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (richTextBox1.TextLength > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Do you wish to save before closing?", "Text Editor", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Save();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    this.Close();
+                }
+                else if (dialogResult == DialogResult.Cancel)
+                { }
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void btn_undo_Click(object sender, EventArgs e)
