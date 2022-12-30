@@ -82,6 +82,14 @@ namespace Text_Editor
             richTextBox1.Paste();
         }
 
+        private void Cut()
+        {
+            if (richTextBox1.SelectionLength > 0)
+            {
+                richTextBox1.Cut();
+            }
+        }
+
         private void Bold()
         {
             string font_name = null;
@@ -259,6 +267,16 @@ namespace Text_Editor
             }
         }
 
+        private void Undo()
+        {
+            richTextBox1.Undo();
+        }
+
+        private void Redo()
+        {
+            richTextBox1.Redo();
+        }
+
 
 
 
@@ -414,6 +432,41 @@ namespace Text_Editor
         private void btn_print_Click(object sender, EventArgs e)
         {
             Print();
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cut();
+        }
+
+        private void btn_cut_Click(object sender, EventArgs e)
+        {
+            Cut();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_undo_Click(object sender, EventArgs e)
+        {
+            Undo();
+        }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Undo();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Redo();
+        }
+
+        private void btn_redo_Click(object sender, EventArgs e)
+        {
+            Redo();
         }
     }
 }

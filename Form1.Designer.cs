@@ -38,6 +38,7 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +57,12 @@
             this.btn_open = new System.Windows.Forms.ToolStripButton();
             this.btn_save = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_undo = new System.Windows.Forms.ToolStripButton();
+            this.btn_redo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_copy = new System.Windows.Forms.ToolStripButton();
             this.btn_paste = new System.Windows.Forms.ToolStripButton();
+            this.btn_cut = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_bold = new System.Windows.Forms.ToolStripButton();
             this.btn_italic = new System.Windows.Forms.ToolStripButton();
@@ -67,15 +72,13 @@
             this.btn_left = new System.Windows.Forms.ToolStripButton();
             this.btn_center = new System.Windows.Forms.ToolStripButton();
             this.btn_right = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btn_print = new System.Windows.Forms.ToolStripButton();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.btn_justify = new System.Windows.Forms.ToolStripButton();
-            this.btn_cut = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_print = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -152,10 +155,12 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cutToolStripMenuItem,
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem,
             this.undoToolStripMenuItem,
@@ -164,31 +169,40 @@
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
             // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
@@ -266,6 +280,9 @@
             this.btn_open,
             this.btn_save,
             this.toolStripSeparator1,
+            this.btn_undo,
+            this.btn_redo,
+            this.toolStripSeparator5,
             this.btn_copy,
             this.btn_paste,
             this.btn_cut,
@@ -278,7 +295,6 @@
             this.btn_left,
             this.btn_center,
             this.btn_right,
-            this.btn_justify,
             this.toolStripSeparator4,
             this.btn_print});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
@@ -322,6 +338,31 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // btn_undo
+            // 
+            this.btn_undo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_undo.Image = global::Text_Editor.Properties.Resources.undo;
+            this.btn_undo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_undo.Name = "btn_undo";
+            this.btn_undo.Size = new System.Drawing.Size(23, 22);
+            this.btn_undo.Text = "Undo";
+            this.btn_undo.Click += new System.EventHandler(this.btn_undo_Click);
+            // 
+            // btn_redo
+            // 
+            this.btn_redo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_redo.Image = global::Text_Editor.Properties.Resources.redo;
+            this.btn_redo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_redo.Name = "btn_redo";
+            this.btn_redo.Size = new System.Drawing.Size(23, 22);
+            this.btn_redo.Text = "Redo";
+            this.btn_redo.Click += new System.EventHandler(this.btn_redo_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
             // btn_copy
             // 
             this.btn_copy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -341,6 +382,16 @@
             this.btn_paste.Size = new System.Drawing.Size(23, 22);
             this.btn_paste.Text = "Paste";
             this.btn_paste.Click += new System.EventHandler(this.btn_paste_Click);
+            // 
+            // btn_cut
+            // 
+            this.btn_cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_cut.Image = global::Text_Editor.Properties.Resources.cut;
+            this.btn_cut.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_cut.Name = "btn_cut";
+            this.btn_cut.Size = new System.Drawing.Size(23, 22);
+            this.btn_cut.Text = "Cut";
+            this.btn_cut.Click += new System.EventHandler(this.btn_cut_Click);
             // 
             // toolStripSeparator2
             // 
@@ -421,6 +472,21 @@
             this.btn_right.Text = "Right";
             this.btn_right.Click += new System.EventHandler(this.btn_right_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btn_print
+            // 
+            this.btn_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btn_print.Image = global::Text_Editor.Properties.Resources.print;
+            this.btn_print.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(23, 22);
+            this.btn_print.Text = "Print";
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -437,39 +503,6 @@
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // btn_justify
-            // 
-            this.btn_justify.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_justify.Image = global::Text_Editor.Properties.Resources.justify;
-            this.btn_justify.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_justify.Name = "btn_justify";
-            this.btn_justify.Size = new System.Drawing.Size(23, 22);
-            this.btn_justify.Text = "Justify";
-            // 
-            // btn_cut
-            // 
-            this.btn_cut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_cut.Image = global::Text_Editor.Properties.Resources.cut;
-            this.btn_cut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_cut.Name = "btn_cut";
-            this.btn_cut.Size = new System.Drawing.Size(23, 22);
-            this.btn_cut.Text = "Cut";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btn_print
-            // 
-            this.btn_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btn_print.Image = global::Text_Editor.Properties.Resources.print;
-            this.btn_print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(23, 22);
-            this.btn_print.Text = "Print";
-            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // Form1
             // 
@@ -540,8 +573,11 @@
         private ToolStripMenuItem rightToolStripMenuItem;
         private ToolStripMenuItem justifiedToolStripMenuItem;
         private ToolStripButton btn_cut;
-        private ToolStripButton btn_justify;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripButton btn_print;
+        private ToolStripMenuItem cutToolStripMenuItem;
+        private ToolStripButton btn_undo;
+        private ToolStripButton btn_redo;
+        private ToolStripSeparator toolStripSeparator5;
     }
 }
