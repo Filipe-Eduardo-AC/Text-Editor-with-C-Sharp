@@ -1,6 +1,7 @@
 # Text Editor
 
 A text editor that I made while studying C Sharp (C#)
+
 Made with C# 
 Using the Visual Studio 2022 IDE
 
